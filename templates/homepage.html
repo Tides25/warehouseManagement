@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}仓库管理{% endblock title %}
+
+{% block body %}
+{% block navbar %}
+{{super()}}
+{% endblock navbar %}
+{% block content %}
+<div class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
+            <div class="jumbotron">
+                <h1>欢迎，管理员。</h1>
+                <p>在此之上你可以进行数据的查询，修改和删除。</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; Company 2014</p>
+    </footer>
+
+    {%- endblock content %}
+    {% endblock body %}

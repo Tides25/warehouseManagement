@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% block title %}管理员操作{% endblock title %}
+<style type="text/css">
+    .alert {
+        position: relative;
+        padding: 7px;
+        margin: 7px 0;
+        border: 1px solid transparent;
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+        border-radius: 5px;
+    }
+</style>
+{%- block styles %}
+{{super()}}
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+{%- endblock styles %}
+{%- endblock head %}
+
+{% block body %}
+{% block navbar %}
+{{super()}}
+{% endblock navbar %}
+{% block content %}
+<div class="container">
+    <div class="col-sm-12 col-md-12">
+        <div class="jumbotron">
+            {% for message in get_flashed_messages() %}
+            <div class="alert">{{message}}</div>
+            {% endfor %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>管理员id</th>
+                            <th>密码</th>
+                            <th>联系方式</th>
+                            <th>工号</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for admin in admin_info %}
+                        <tr>
+                            <th>{{admin[0]}}</th>
+                            <th>{{admin[1]}}</th>
+                            <th>{{admin[2]}}</th>
+                            <th>{{admin[3]}}</th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-sm-12 col-md-12">
+        <form class="register" method="POST" action="{{url_for('admin')}}">
+            Admin_id <input type="text" name="new_id" autocomplete="off" required>
+            Password <input type="text" name="new_pw" autocomplete="off" required>
+            Tel <input type="text" name="new_tel" autocomplete="off" required>
+            Job_number <input type="text" name="new_jn" autocomplete="off" required>
+            <input class="rgs_btn" type="submit" name="submit" value="Add">
+        </form>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{{super()}}
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock scripts %}
+{% endblock body %}

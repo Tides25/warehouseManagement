@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% block title %}商品信息{% endblock title %}
+{%- block styles %}
+{{super()}}
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+{%- endblock styles %}
+<style type="text/css">
+    .message {
+        position: relative;
+        padding: 7px;
+        margin: 7px 0;
+        border: 1px solid transparent;
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+        border-radius: 5px;
+    }
+</style>
+{%- endblock head %}
+
+{% block body %}
+{% block navbar %}
+{{super()}}
+{% endblock navbar %}
+{% block content %}
+<div class="container">
+    <div class="col-sm-12 col-md-12">
+        <div class="jumbotron">
+            {% for message in get_flashed_messages() %}
+            <div class="message">{{message}}</div>
+            {% endfor %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>商品id</th>
+                            <th>商品名</th>
+                            <th>入库时间</th>
+                            <th>数量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for good in goods %}
+                        <tr>
+                            <th>{{good[0]}}</th>
+                            <th>{{good[1]}}</th>
+                            <th>{{good[2]}}</th>
+                            <th>{{good[3]}}</th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{{super()}}
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock scripts %}
+{% endblock body %}

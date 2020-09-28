@@ -1,0 +1,76 @@
+.bgt{
+    background: url('images/login_bg.jpg') no-repeat fixed center;
+}
+
+.whole{
+    width:25%;
+    min-width: 400px;
+    background-color: #E2E4E1;
+    margin: 200px auto 0;
+    opacity: 0.9;
+    text-align: center;
+    padding-bottom: 35px;
+}
+
+.zhuce{
+    width: 100%;
+    background-color: #478AB0;
+    height: 50px;
+    line-height: 50px;
+	font-weight:bold;
+    color: #fff;
+}
+
+.input{
+    width: 100%;
+	
+    color: #8DB3FF;
+    margin-top: 20px;
+
+}
+
+.input_top{
+    margin-bottom: 10px;
+	font-size: 13pt;
+	font-weight:bold;
+}
+
+.input_value{
+    margin:0 10%;
+    width:80%;
+    text-indent:10px ;
+    height: 28px;
+	border:1px solid #4487AE;
+    line-height: 20px;
+
+}
+
+.input_value:hover{
+    border: 1px solid;
+    border-color: #8DB3FF;
+}
+
+.button_div{
+    margin: 0 10%;
+    width:80%;
+    margin-top: 50px;
+}
+
+.button_1{
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #66a3ff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.button_1:hover{
+    opacity: 0.7;
+}
+
+.block_30{
+    height: 20px;
+}

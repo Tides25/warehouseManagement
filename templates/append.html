@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% block title %}商品添加{% endblock title %}
+<style type="text/css">
+    .alert {
+        position: relative;
+        padding: 7px;
+        margin: 7px 0;
+        border: 1px solid transparent;
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+        border-radius: 5px;
+    }
+</style>
+{%- block styles %}
+{{super()}}
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+{%- endblock styles %}
+{%- endblock head %}
+
+{% block body %}
+{% block navbar %}
+{{super()}}
+{% endblock navbar %}
+{% block content %}
+<div class="container">
+    <div class="col-sm-12 col-md-12">
+        <div class="jumbotron">
+            {% for message in get_flashed_messages() %}
+            <div class="alert">{{message}}</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-sm-12 col-md-12">
+        <form class="good_append" method="POST" action="{{url_for('append')}}">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>商品ID:</td>
+                        <td><input type="text" name="new_goods_id" autocomplete="off" required></td>
+                    </tr>
+                    <tr>
+                        <td>商品名</td>
+                        <td><input type="text" name="new_goods_name" autocomplete="off" required></td>
+                    </tr>
+                    <tr>
+                        <td>入库时间</td>
+                        <td><input type="text" name="new_enter_time" autocomplete="off" required></td>
+                    </tr>
+                    <tr>
+                        <td>数量</td>
+                        <td><input type="text" name="new_goods_amount" autocomplete="off" required></td>
+                    </tr>
+                    <tr>
+                        <td>商品类型</td>
+                        <td><input type="text" name="new_goods_cata" autocomplete="off" required></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input class="append_btn" type="submit" name="submit" value="添加">
+        </form>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{{super()}}
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock scripts %}
+{% endblock body %}

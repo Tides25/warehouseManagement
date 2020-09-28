@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="login">
+  <meta name="author" content="cynic">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login.css')}}">
+  <link rel="icon" href="{{url_for('static', filename='favicon.png')}}">
+
+  <title>欢迎来到仓库系统</title>
+  <style type="text/css">
+    .alert {
+      position: relative;
+      padding: 7px;
+      margin: 7px 0;
+      border: 1px solid transparent;
+      color: #004085;
+      background-color: #cce5ff;
+      border-color: #b8daff;
+      border-radius: 5px;
+    }
+  </style>
+
+</head>
+
+<body class="bgt">
+  <div class="whole">
+    {% for message in get_flashed_messages() %}
+    <div class="alert">{{message}}</div>
+    {% endfor %}
+    <div class="zhuce">
+      登录
+    </div>
+
+    <form class="" action="{{url_for('login')}}" id="newone" name="newone" method="POST">
+      <div class="input">
+        <div class="input_top">账户</div>
+        <input class="input_value" value="" name="id" />
+      </div>
+      <div class="block_30"></div>
+      <div class="input">
+        <div class="input_top">密码</div>
+        <input type="password" class="input_value" value="" name="pw"/>
+      </div>
+
+
+      <div class="button_div">
+        <input class="button_1" type="submit" value="登录" />
+      </div>
+
+    </form>
+  </div>
+
+</body>
+
+</html>
